@@ -1,0 +1,54 @@
+1.uždaviniams spręsti kurkite savo funkcijas, pasidarykite taip, kad būtų patogu dirbti.
+
+DictReader pvz:
+
+import csv
+
+kintamasis = {} - sukuriamas tuscias kintamasis, kuris bus naudojamas duomenim saugoti
+
+with open('pavadinimas.csv', 'r') as f:  -  nuskaitom csv faila
+    reader = csv.DictReader(f)
+    for eilute in reader:
+        data = eilute["Data"]  - priskiriama eilute is csv failo
+        kintamasis1 = float(eilute["eilutesPavadinimas"])  - priskiriama eilute is csv failo su skaiciais
+        kintamasis2 = eilute["eilutesPavadinimas"] - priskiriama eilute is csv failo
+        kintamasis3 = eilute["eilutesPavadinimas"] - priskiriama eilute is csv failo
+        menesiai = data.split("-")[1] - atsifiltrojam tik menesius pagal bruksniuka , metai - 0, menesiai-1, dienos -2
+        if menesiai not in kintamasis: - jei tokio menesio nera tada sukuriam tuscia kintamaji kuriam bus priskyriami menesiai.
+            kintamasis[menesiai] = {}
+        if kintmasis2 not in kintamasis2[menesiai]:  - ieskome ar yra kintamasis kurio mums reikia salygoje ir jei ne priskyriam jam 0.0
+            kintamasis[menesiai][kintamasis2] = 0.0
+        if kintamasis3 == "Salyga":  - tada tikriname kita salyga, jei yra reigalinga papildoma reiksme
+            kintamasis[menesiai][kintamasis2] += kintamasis1
+
+print("Pavadinimas:") - parasom pavadinima pvz: "Pelnas per menesi:"
+for menesiai, kintamasis4 in kintamasis.items(): -isvedam informacija i ekrana.
+    print(f"{menesiai}:")
+    for valiuta, uzdirbta in kintamasis.items(): - kadangi tusciam kintamajui pridejom 2 eilutes, tai reik 2 kintamajam sugalvot pavadinima irgi sio atveju uzdirbta.
+        print(f"  {valiuta}: {uzdirbta}")
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+items pvz W3schools:
+car = {
+   "brand": "Ford",
+   "model": "Mustang",
+   "year": 1964
+}
+
+x = car.items()
+print(x) - is cia gauname dict_items([('brand', 'Ford'), ('model', 'Mustang'), ('year', 1964)])
+------------------------------------------------------------------------------------------------------------------------
+:.2f - apvalina skaicius po kablelio iki 2(naudinga printinant)
+pvz: print(f"Pajamas sudaro {(pajamos / bendrosPajamos) * 100:.2f}%")
+
+------------------------------------------------------------------------------------------------------------------------
+with open('Pavadinimas.csv', 'w', newline='') as output_file: -atidaro nauja csv irasymui
+    csv_writer = csv.writer(output_file) - leidzia irasyt duomenis i faila
+    csv_writer.writerow(['ka', 'norime', 'irasyti']) - irasom nauja eilute i csv faila
+
+    for kintamasis1, kintamasis2 in kintamasis.items(): - sudarom cikla reikiamiems duomenims atrinkti
+        for kintamasis3, kintamasis4 in kintamasis2.items():
+            csv_writer.writerow([kintamasis1, kintamasis3, kintmasis4])
+------------------------------------------------------------------------------------------------------------------------
